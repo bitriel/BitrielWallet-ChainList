@@ -1,7 +1,9 @@
 import { Parser } from '@json2csv/plainjs';
-import ChainInfoMap from '../../packages/chain-list/src/data/ChainInfo.json' assert { type: "json" };
-
+import { createRequire } from 'module';
 import fs from "fs";
+
+const require = createRequire(import.meta.url);
+const ChainInfoMap = require('../../packages/chain-list/src/data/ChainInfo.json');
 
 const LOGO_URL = 'https://raw.githubusercontent.com/bitriel/BitrielWallet-ChainList/master/packages/chain-list/src/logo';
 const allChains = [];
@@ -34,7 +36,11 @@ function getChainSymbol (chainInfo) {
     return chainInfo.substrateInfo.symbol
   }
 
-  return chainInfo.evmInfo.symbol;
+  if (chainInfo.evmInfo?.symbol) {
+    return chainInfo.evmInfo.symbol;
+  }
+  
+  return ''; // Return empty string if no symbol found
 }
 
 function getSpecialFeatures (chainInfo) {

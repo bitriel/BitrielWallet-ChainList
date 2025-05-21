@@ -1,10 +1,10 @@
 import { Parser } from '@json2csv/plainjs';
-
-import ChainAssetMap from '../../packages/chain-list/src/data/ChainAsset.json' assert { type: "json" };
-import AssetRefMap from '../../packages/chain-list/src/data/AssetRef.json' assert { type: "json" };
-
+import { createRequire } from 'module';
 import fs from "fs";
-import {src} from "@babel/core/lib/vendor/import-meta-resolve.js";
+
+const require = createRequire(import.meta.url);
+const ChainAssetMap = require('../../packages/chain-list/src/data/ChainAsset.json');
+const AssetRefMap = require('../../packages/chain-list/src/data/AssetRef.json');
 
 const allXcmChannels = [];
 

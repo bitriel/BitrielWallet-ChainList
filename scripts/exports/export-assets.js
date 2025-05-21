@@ -1,9 +1,11 @@
 import { Parser } from '@json2csv/plainjs';
-
-import ChainAssetMap from '../../packages/chain-list/src/data/ChainAsset.json' assert { type: "json" };
-import AssetRefMap from '../../packages/chain-list/src/data/AssetRef.json' assert { type: "json" };
-
+import { createRequire } from 'module';
 import fs from "fs";
+
+const require = createRequire(import.meta.url);
+const ChainAssetMap = require('../../packages/chain-list/src/data/ChainAsset.json');
+const AssetRefMap = require('../../packages/chain-list/src/data/AssetRef.json');
+
 const LOGO_URL = 'https://raw.githubusercontent.com/bitriel/BitrielWallet-ChainList/master/packages/chain-list/src/logo';
 
 const allAssets = [];
