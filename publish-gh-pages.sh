@@ -4,6 +4,7 @@
 echo "Updating JSON files to use GitHub Pages URLs..."
 node scripts/patch/update-icon-urls.js
 node scripts/patch/update-asset-logo-map.js
+node scripts/patch/update-chain-logo-map.js
 
 # Build the project
 yarn build

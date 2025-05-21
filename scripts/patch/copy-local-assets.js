@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // Define file paths
 const assetLogoMapPath = path.join(__dirname, '../../packages/chain-list/src/data/AssetLogoMap.json');
+const chainLogoMapPath = path.join(__dirname, '../../packages/chain-list/src/data/ChainLogoMap.json');
 const outputDir = path.join(__dirname, '../../packages/chain-list/build/logo');
 const assetsBaseDir = path.join(__dirname, '../../packages/chain-list-assets/public/assets');
 
@@ -39,23 +40,43 @@ const copyFile = (sourcePath, targetPath) => {
 // Main function
 const main = async () => {
   try {
-    // Read the AssetLogoMap.json
+    // First process AssetLogoMap.json
+    console.log("Processing AssetLogoMap.json...");
     const assetLogoMapContent = fs.readFileSync(assetLogoMapPath, 'utf8');
     const assetLogoMap = JSON.parse(assetLogoMapContent);
     
     console.log(`Found ${Object.keys(assetLogoMap).length} asset logo entries`);
     
-    // Process each asset logo file
+    // Now process ChainLogoMap.json
+    console.log("Processing ChainLogoMap.json...");
+    const chainLogoMapContent = fs.readFileSync(chainLogoMapPath, 'utf8');
+    const chainLogoMap = JSON.parse(chainLogoMapContent);
+    
+    console.log(`Found ${Object.keys(chainLogoMap).length} chain logo entries`);
+    
+    // Combine both maps for processing
+    const combinedLogoMap = { ...assetLogoMap, ...chainLogoMap };
+    
+    // Process each logo file
     const operations = [];
     let count = 0;
     
-    for (const [assetKey, logoUrl] of Object.entries(assetLogoMap)) {
-      // Extract the filename and path components from the URL
-      // Example URL: https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/selendra-native-sel.png
-      const urlPath = new URL(logoUrl).pathname;
-      const pathParts = urlPath.split('/');
-      const fileName = pathParts.pop(); // Get filename
+    for (const [key, logoUrl] of Object.entries(combinedLogoMap)) {
+      // Only process URLs that point to our GitHub Pages
+      if (!logoUrl.includes('bitriel.github.io')) {
+        continue;
+      }
       
+      // Extract the filename from the URL
+      const fileName = logoUrl.split('/').pop();
+      const targetPath = path.join(outputDir, fileName);
+      
+      // Skip if the target file already exists
+      if (fs.existsSync(targetPath)) {
+        // console.log(`Skipping ${fileName} (already exists in target)`);
+        continue;
+      }
+
       // Possible source locations (in order of preference)
       const possiblePaths = [
         path.join(assetsBaseDir, 'chain-assets', fileName),
@@ -65,14 +86,6 @@ const main = async () => {
         path.join(assetsBaseDir, 'custom-chains', fileName),
         path.join(assetsBaseDir, fileName) // For default.png
       ];
-
-      const targetPath = path.join(outputDir, fileName);
-      
-      // Skip if the target file already exists
-      if (fs.existsSync(targetPath)) {
-        console.log(`Skipping ${fileName} (already exists in target)`);
-        continue;
-      }
 
       // Find the first existing source file
       const sourcePath = possiblePaths.find(p => fs.existsSync(p));
@@ -96,7 +109,7 @@ const main = async () => {
     // Wait for all operations to complete
     await Promise.all(operations);
     
-    console.log(`Copied ${count} asset logo files`);
+    console.log(`Copied ${count} logo files`);
   } catch (error) {
     console.error('Error:', error);
   }
