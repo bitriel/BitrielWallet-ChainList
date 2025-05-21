@@ -1,4 +1,11 @@
 {
+  "selendra-NATIVE-SEL___selendra-LOCAL-SEL": {
+    "srcAsset": "selendra-NATIVE-SEL",
+    "destAsset": "selendra-LOCAL-SEL",
+    "srcChain": "selendra",
+    "destChain": "selendra",
+    "path": "XCM"
+  },
   "polkadot-NATIVE-DOT___moonbeam-LOCAL-xcDOT": {
     "srcAsset": "polkadot-NATIVE-DOT",
     "destAsset": "moonbeam-LOCAL-xcDOT",
