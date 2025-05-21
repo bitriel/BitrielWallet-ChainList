@@ -1,0 +1,84 @@
+name: Publish Build
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  master:
+    if: "startsWith(github.event.head_commit.message, '[Release]')"
+    runs-on: ubuntu-22.04
+    name: Build and publish
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_AUTOMATION_TOKEN }}
+
+      - name: Set input data
+        id: input_data
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then
+            echo "target=latest" >> $GITHUB_OUTPUT
+          else
+            echo "target=beta" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies and build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+          STRAPI_URL: ${{ secrets.STRAPI_URL }}
+        run: |
+          yarn install
+          yarn publish:${{ steps.input_data.outputs.target }}
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Github-Bot
+          author_email: scheduler@github.io
+          message: 'Update data after publish:${{ steps.input_data.outputs.target }}'
+
+      - name: Deploy Assets to Cloudflare Pages
+        id: cloudflare_deployment
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: 'sw-chain-list-assets'
+          gitHubToken: ${{ secrets.GH_AUTOMATION_TOKEN }}
+          branch: ${{ github.ref_name }}
+          directory: './packages/chain-list-assets/public'
+          wranglerVersion: '3'
+
+      - name: Get current version
+        id: get_version
+        run: echo "VERSION=$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+
+      - name: Create tag
+        id: create_tag
+        if: github.ref == 'refs/heads/master' && contains(github.event.head_commit.message, '[Stable]')
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git tag -a "v${{ env.VERSION }}" -m "Release stable version ${{ env.VERSION }}"
+          git push origin "v${{ env.VERSION }}"
+
+      - name: Notify to Discord
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ job.status }}
+          username: Chain List Notifier
+          title: ${{ github.workflow }}
+          description: |
+            The deployment has been completed.
+            Commit message: ${{ github.event.head_commit.message }}

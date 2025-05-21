@@ -1,0 +1,18 @@
+{
+  "avail_mainnet-NATIVE-AVAIL": {
+    "originChain": "avail_mainnet",
+    "slug": "avail_mainnet-NATIVE-AVAIL",
+    "name": "Avail",
+    "symbol": "AVAIL",
+    "decimals": 18,
+    "priceId": "avail",
+    "minAmount": "1000000000000",
+    "assetType": "NATIVE",
+    "metadata": {
+      "autoEnable": true
+    },
+    "multiChainAsset": "AVAIL-Avail",
+    "hasValue": true,
+    "icon": "https://chain-list-assets.subwallet.app/assets/chain-assets/avail_mainnet-native-avail.png"
+  }
+}
