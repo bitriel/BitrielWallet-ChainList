@@ -1,12 +1,12 @@
 {
   "author": "Sam All <allencode.dev@icloud.com>",
-  "bugs": "https://github.com/bitriel/BitrieWallet-ChainList/issues",
-  "homepage": "https://github.com/bitriel/BitrieWallet-ChainList#readme",
+  "bugs": "https://github.com/bitriel/BitrielWallet-ChainList/issues",
+  "homepage": "https://github.com/bitriel/BitrielWallet-ChainList#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitriel/BitrieWallet-ChainList.git"
+    "url": "https://github.com/bitriel/BitrielWallet-ChainList.git"
   },
   "sideEffects": false,
   "type": "module",
