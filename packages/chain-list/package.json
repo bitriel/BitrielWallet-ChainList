@@ -1,5 +1,5 @@
 {
-  "author": "NamPC <nampham@subwallet.app>",
+  "author": "NamPC <nampham@bitriel.app>",
   "bugs": "https://github.com/bitriel/BitrieWallet-ChainList/issues",
   "contributors": [],
   "description": "Open-source package to manage chains, tokens and other information",
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/bitriel/BitrieWallet-ChainList/tree/master/packages/chain-list#readme",
   "license": "Apache-2.0",
   "maintainers": [],
-  "name": "@subwallet/chain-list",
+  "name": "@bitriel/chain-list",
   "repository": {
     "directory": "packages/chain-list",
     "type": "git",

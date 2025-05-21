@@ -1,5 +1,5 @@
-# SubWallet-Chain
-**This is the repository to integrate, contain all information about projects/chains/assets available on SubWallet's products.** <br>
+# BitrielWallet-ChainList
+**This is the repository to integrate, contain all information about projects/chains/assets available on Bitriel's products.** <br>
 
 ## Scope of this project
 - Provide a coherent schema and interfaces for projects/chains/assets across blockchains
@@ -7,7 +7,7 @@
 - Track development status
 - Provide metadata/on-chain information about chains and assets
 - Provide general, non-tech information (website, description, social media,...) about chains and assets
-- Allowing partners/teams to easily integrate with SubWallet products
+- Allowing partners/teams to easily integrate with Bitriel products
 
 ## Schema
 ```mermaid
@@ -102,4 +102,4 @@ erDiagram
 - **Asset reference**: showing path in which an asset can be converted to another
 - **Project**: products for end-user building upon a blockchain, can be a dApp, a media team,...
 
-**Please refer to [this guide](https://github.com/Koniverse/SubWallet-ChainList/wiki/Start-contributing-to-the-project) to start contributing to the project**
+**Please refer to [this guide](https://github.com/bitriel/BitrielWallet-ChainList/wiki/Start-contributing-to-the-project) to start contributing to the project**

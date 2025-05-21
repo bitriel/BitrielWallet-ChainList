@@ -3,7 +3,7 @@ import { md5HashChainAsset, md5HashChainInfo, PATCH_SAVE_DEV, PATCH_SAVE_DIR, PA
 import fs from "fs";
 const CHAIN_PATH = './packages/chain-list/src/data/ChainInfo.json';
 const ASSET_PATH = './packages/chain-list/src/data/ChainAsset.json';
-const STABLE_SOURCE = `https://raw.githubusercontent.com/Koniverse/SubWallet-Chain/v${STABLE_VERSION}/packages/chain-list/src/data`;
+const STABLE_SOURCE = `https://raw.githubusercontent.com/bitriel/BitrielWallet-ChainList/v${STABLE_VERSION}/packages/chain-list/src/data`;
 
 
 const main = async () => {

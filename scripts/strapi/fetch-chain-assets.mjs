@@ -59,7 +59,7 @@ query {
 
 const main = async () => {
     const downloadDir = `${DOWNLOAD_DIR}/chain-assets`;
-    const apiUrl = BRANCH_NAME === 'master' ? 'https://content.subwallet.app/api/list/chain-asset' : 'https://content.subwallet.app/api/list/chain-asset?preview=true';
+    const apiUrl = BRANCH_NAME === 'master' ? 'https://content.bitriel.app/api/list/chain-asset' : 'https://content.bitriel.app/api/list/chain-asset?preview=true';
     const results = await fetch(apiUrl);
     const data = await results.json();
     const assets = await Promise.all(data.map(async asset => {

@@ -1,6 +1,6 @@
 {
-  "author": "NamPC <nampham@subwallet.app>",
-  "bugs": "https://github.com/bitriel/BitrieWallet-ChainList/issues",
+  "author": "NamPC <nampham@bitriel.app>",
+  "bugs": "https://github.com/bitriel/BitrielWallet-ChainList/issues",
   "homepage": "https://github.com/bitriel/BitrieWallet-ChainList#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.2.0",
@@ -15,6 +15,8 @@
     "packages/*"
   ],
   "bin": {
+    "bitriel-ci-ghact-build": "./scripts/bitriel-ci-ghact-build.mjs",
+    "bitriel-dev-build-ts": "./scripts/bitriel-dev-build-ts.mjs",
     "export-assets": "./scripts/exports/export-assets.js",
     "export-chains": "./scripts/exports/export-chains.js",
     "export-xcm-channels": "./scripts/exports/export-xcm-channels.js",
@@ -25,14 +27,12 @@
     "strapi-fetch-chain-assets": "./scripts/strapi/fetch-chain-assets.mjs",
     "strapi-fetch-chains": "./scripts/strapi/fetch-chains.mjs",
     "strapi-multi-chain-assets": "./scripts/strapi/fetch-multi-chain-assets.mjs",
-    "subwallet-ci-ghact-build": "./scripts/subwallet-ci-ghact-build.mjs",
-    "subwallet-dev-build-ts": "./scripts/subwallet-dev-build-ts.mjs",
     "validate-asset-refs": "./scripts/validations/validate-asset-refs.js",
     "validate-chains": "./scripts/validations/validate-chains.js",
     "validate-tokens": "./scripts/validations/validate-tokens.js"
   },
   "scripts": {
-    "build": "subwallet-dev-build-ts && cp -r packages/chain-list/build/data packages/chain-list/build/cjs",
+    "build": "bitriel-dev-build-ts && cp -r packages/chain-list/build/data packages/chain-list/build/cjs",
     "build:beta": "BRANCH_NAME=dev yarn build",
     "build:extra": "",
     "build:latest": "BRANCH_NAME=master yarn build",

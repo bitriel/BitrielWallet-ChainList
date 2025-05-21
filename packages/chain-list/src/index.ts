@@ -1,4 +1,4 @@
-// Copyright 2019-2024 @subwallet/chain-list authors & contributors
+// Copyright 2019-2024 @bitriel/chain-list authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import { Md5 } from 'ts-md5';

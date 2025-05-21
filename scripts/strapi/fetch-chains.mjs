@@ -4,7 +4,7 @@ const BRANCH_NAME = process.env.BRANCH_NAME || 'dev';
 const SAVE_PATH = './packages/chain-list/src/data/ChainInfo.json';
 
 const main = async () => {
-    const apiUrl = BRANCH_NAME === 'master' ? 'https://content.subwallet.app/api/list/chain' : 'https://content.subwallet.app/api/list/chain?preview=true';
+    const apiUrl = BRANCH_NAME === 'master' ? 'https://content.bitriel.app/api/list/chain' : 'https://content.bitriel.app/api/list/chain?preview=true';
     const results = await fetch(apiUrl);
     const data = await results.json();
     const downloadDir = `${DOWNLOAD_DIR}/chains`;

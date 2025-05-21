@@ -9,7 +9,7 @@ const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
 const BRANCH_NAME = process.env.BRANCH_NAME || 'dev';
 
 export const DOWNLOAD_DIR = './packages/chain-list-assets/public/assets';
-export const DOWNLOAD_LINK = BRANCH_NAME === 'dev' ? 'https://dev.sw-chain-list-assets.pages.dev' : 'https://chain-list-assets.subwallet.app';
+export const DOWNLOAD_LINK = BRANCH_NAME === 'dev' ? 'https://dev.sw-chain-list-assets.pages.dev' : 'https://chain-list-assets.bitriel.app';
 
 export const DEFAULT_ICON = `${DOWNLOAD_LINK}/assets/default.png`;
 
