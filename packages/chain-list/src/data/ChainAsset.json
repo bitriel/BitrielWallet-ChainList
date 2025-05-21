@@ -12,7 +12,7 @@
      "multiChainAsset": "SEL-Selendra",
      "hasValue": false,
      "icon": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/selendra-native-sel.png"
-   },
+  },
   "polkadot-NATIVE-DOT": {
     "originChain": "polkadot",
     "slug": "polkadot-NATIVE-DOT",
