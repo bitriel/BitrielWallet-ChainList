@@ -1,6 +1,6 @@
 {
-  "author": "NamPC <nampham@bitriel.app>",
-  "bugs": "https://github.com/bitriel/BitrielWallet-ChainList/issues",
+  "author": "Sam All <allencode.dev@icloud.com>",
+  "bugs": "https://github.com/bitriel/BitrieWallet-ChainList/issues",
   "homepage": "https://github.com/bitriel/BitrieWallet-ChainList#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.2.0",
