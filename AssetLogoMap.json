@@ -1,6 +1,6 @@
 {
   "default": "https://dev.sw-chain-list-assets.pages.dev/assets/default.png",
-  "selendra-native-sel": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/polkadot-native-dot.png",
+  "selendra-native-sel": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/selendra-native-sel.png",
   "polkadot-native-dot": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/polkadot-native-dot.png",
   "kusama-native-ksm": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/kusama-native-ksm.png",
   "ethereum-native-eth": "https://dev.sw-chain-list-assets.pages.dev/assets/chain-assets/ethereum-native-eth.png",
