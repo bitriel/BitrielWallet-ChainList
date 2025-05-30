@@ -2,7 +2,7 @@
   "selendra-NATIVE-SEL___selendra-LOCAL-SEL": {
     "srcAsset": "selendra-NATIVE-SEL",
     "destAsset": "selendra-LOCAL-SEL",
-    "srcChain": "selendra",
+    "srcChain": "polkadot",
     "destChain": "selendra",
     "path": "XCM"
   },
