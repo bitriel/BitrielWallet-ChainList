@@ -20,7 +20,22 @@
       ],
       "abiExplorer": "https://explorer.selendra.org"
     },
-    "substrateInfo": null,
+   "substrateInfo": {
+      "relaySlug": null,
+      "paraId": null,
+      "genesisHash": "0x536274806b33f992898c98f2ad4fe6e190057900fcd8505083e3b765790b4bed",
+      "addressPrefix": 42,
+      "chainType": "PARACHAIN",
+      "crowdloanUrl": null,
+      "blockExplorer": "http://explorer.selendra.org/",
+      "symbol": "SEL",
+      "decimals": 18,
+      "hasNativeNft": true,
+      "supportStaking": true,
+      "supportSmartContract": null,
+      "crowdloanParaId": null,
+      "crowdloanFunds": []
+    },
     "extraInfo": {
       "subscanSlug": null,
       "chainBalanceSlug": "selendra"

@@ -19,6 +19,7 @@ export const AssetLogoMap = _AssetLogoMap as unknown as Record<string, string>;
 export const ChainLogoMap = _ChainLogoMap as unknown as Record<string, string>;
 
 export enum COMMON_CHAIN_SLUGS {
+  SELENDRA = 'selendra',
   POLKADOT = 'polkadot',
   KUSAMA = 'kusama',
   MOONBEAM = 'moonbeam',
@@ -43,6 +44,7 @@ export enum COMMON_CHAIN_SLUGS {
 }
 
 export enum COMMON_ASSETS {
+  SEL = 'selendra-NATIVE-SEL',
   DOT = 'polkadot-NATIVE-DOT',
   ETH = 'ethereum-NATIVE-ETH',
   KSM = 'kusama-NATIVE-KSM',
@@ -58,6 +60,7 @@ export enum COMMON_ASSETS {
 }
 
 export const _DEFAULT_CHAINS = [
+  COMMON_CHAIN_SLUGS.SELENDRA as string,
   COMMON_CHAIN_SLUGS.POLKADOT as string,
   COMMON_CHAIN_SLUGS.KUSAMA as string,
   COMMON_CHAIN_SLUGS.ETHEREUM as string

@@ -4,11 +4,18 @@
     "slug": "selendra-NATIVE-SEL",
     "name": "Selendra",
     "symbol": "SEL",
-    "decimals": 42,
+    "decimals": 18,
     "priceId": "selendra",
     "minAmount": "0",
     "assetType": "NATIVE",
-    "metadata": null,
+    "metadata": {
+      "multilocation": {
+        "parents": 0,
+        "interior": "Here"
+      },
+      "paraSpellValue": "SEL",
+      "paraSpellAssetType": "symbol"
+    },
     "multiChainAsset": "SEL-Selendra",
     "hasValue": false,
     "icon": "https://bitriel.github.io/BitrielWallet-ChainList/logo/selendra-native-sel.png"

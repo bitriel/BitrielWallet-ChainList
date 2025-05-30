@@ -142,7 +142,7 @@ export enum _FundStatus {
 }
 
 export interface _CrowdloanFund {
-  relayChain: 'polkadot' | 'kusama'
+  relayChain: 'polkadot' | 'kusama' | 'selendra'
   fundId: string
   paraId: number
   status: _FundStatus
